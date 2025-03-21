@@ -1,5 +1,7 @@
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using NTTDataSales.Domain.Context;
+using NTTDataSales.ORM.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var connStr = builder.Configuration.GetConnectionString("pgsql");
@@ -7,8 +9,11 @@ var connStr = builder.Configuration.GetConnectionString("pgsql");
 // Add services to the container.
 builder.Services.AddDbContext<NttContext>(options =>
     options.UseNpgsql(connStr, opts => opts.MigrationsAssembly("NTTDataSales.Domain")));
-
-builder.Services.AddControllers();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddControllers()
+    .AddJsonOptions(opts =>
+        opts.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services.AddScoped<CustomerRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
