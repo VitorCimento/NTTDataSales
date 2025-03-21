@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NTTDataSales.WebAPI", "NTTDataSales.WebAPI", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTTDataSales.WebAPI", "src\NTTDataSales.WebAPI\NTTDataSales.WebAPI.csproj", "{3F40E9DC-9EC1-4D3D-86A5-068B1D87BAF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NTTDataSales.Domain", "NTTDataSales.Domain", "{6123BD22-6EAE-49EA-AA3D-18FB3EAD2656}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NTTDataSales.ORM", "NTTDataSales.ORM", "{8AA93E7A-1E61-438A-992F-4619BF415FB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTTDataSales.Domain", "src\NTTDataSales.Domain\NTTDataSales.Domain.csproj", "{AFF7C22F-4F61-41F5-9558-7C0A5E71E867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTTDataSales.ORM", "src\NTTDataSales.ORM\NTTDataSales.ORM.csproj", "{BEB3A787-C0DF-4C30-9B9E-092BAE8A121E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F40E9DC-9EC1-4D3D-86A5-068B1D87BAF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F40E9DC-9EC1-4D3D-86A5-068B1D87BAF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F40E9DC-9EC1-4D3D-86A5-068B1D87BAF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F40E9DC-9EC1-4D3D-86A5-068B1D87BAF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF7C22F-4F61-41F5-9558-7C0A5E71E867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF7C22F-4F61-41F5-9558-7C0A5E71E867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF7C22F-4F61-41F5-9558-7C0A5E71E867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF7C22F-4F61-41F5-9558-7C0A5E71E867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB3A787-C0DF-4C30-9B9E-092BAE8A121E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB3A787-C0DF-4C30-9B9E-092BAE8A121E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB3A787-C0DF-4C30-9B9E-092BAE8A121E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB3A787-C0DF-4C30-9B9E-092BAE8A121E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3F40E9DC-9EC1-4D3D-86A5-068B1D87BAF3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{AFF7C22F-4F61-41F5-9558-7C0A5E71E867} = {6123BD22-6EAE-49EA-AA3D-18FB3EAD2656}
+		{BEB3A787-C0DF-4C30-9B9E-092BAE8A121E} = {8AA93E7A-1E61-438A-992F-4619BF415FB8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E7416D96-07B1-450F-9320-F312E04F3B5A}
+	EndGlobalSection
+EndGlobal
