@@ -1,19 +1,20 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NTTDataSales.Domain.Entities;
-using NTTDataSales.Domain.Mappings.DTO.Customer;
+using NTTDataSales.Domain.Mappings.DTO.Branch;
+using NTTDataSales.Domain.Mappings.DTO.Product;
 using NTTDataSales.ORM.Repositories;
 
 namespace NTTDataSales.WebAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CustomersController : ControllerBase
+public class BranchesController : ControllerBase
 {
-    private CustomerRepository _repository;
+    private BranchRepository _repository;
     private IMapper _mapper;
 
-    public CustomersController(CustomerRepository repository, IMapper mapper)
+    public BranchesController(BranchRepository repository, IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
@@ -34,30 +35,30 @@ public class CustomersController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> Get([FromRoute] int id)
     {
-        var customer = await _repository.GetByIdAsync(id);
+        var branch = await _repository.GetByIdAsync(id);
 
-        if (customer == null) return NotFound();
+        if (branch == null) return NotFound();
 
-        return Ok(customer);
+        return Ok(branch);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] CreateCustomerDTO customerDTO)
+    public async Task<IActionResult> Post([FromBody] CreateBranchDTO branchDTO)
     {
-        var customer = _mapper.Map<Customer>(customerDTO);
-        var createdCustomer = await _repository.CreateAsync(customer);
+        var branch = _mapper.Map<Branch>(branchDTO);
+        var createdBranch = await _repository.CreateAsync(branch);
 
-        return CreatedAtAction(nameof(Get), new { createdCustomer.ID }, createdCustomer);
+        return CreatedAtAction(nameof(Get), new { createdBranch.ID }, createdBranch);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put([FromRoute] int id, [FromBody] UpdateCustomerDTO customerDTO)
+    public async Task<IActionResult> Put([FromRoute] int id, [FromBody] UpdateBranchDTO branchDTO)
     {
-        var costumer = await _repository.PutAsync(id, customerDTO);
+        var branch = await _repository.PutAsync(id, branchDTO);
 
-        if (costumer == null) return NotFound();
+        if (branch == null) return NotFound();
 
-        return Ok(costumer);
+        return Ok(branch);
     }
 
     [HttpDelete("{id}")]
@@ -67,6 +68,6 @@ public class CustomersController : ControllerBase
 
         if (!response) return NotFound();
 
-        return Ok(new { message = "Customer removed successfully!" });
+        return Ok(new { message = "Branch removed successfully!" });
     }
 }
