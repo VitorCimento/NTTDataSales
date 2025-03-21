@@ -1,6 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using NTTDataSales.Domain.Context;
+
 var builder = WebApplication.CreateBuilder(args);
+var connStr = builder.Configuration.GetConnectionString("pgsql");
 
 // Add services to the container.
+builder.Services.AddDbContext<NttContext>(options =>
+    options.UseNpgsql(connStr, opts => opts.MigrationsAssembly("NTTDataSales.Domain")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
