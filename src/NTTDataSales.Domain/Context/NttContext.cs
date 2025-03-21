@@ -6,6 +6,7 @@ namespace NTTDataSales.Domain.Context;
 public class NttContext : DbContext
 {
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<Product> Products { get; set; }
 
     public NttContext(DbContextOptions<NttContext> opts) : base(opts) { }
 }
