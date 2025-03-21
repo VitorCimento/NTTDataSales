@@ -19,6 +19,7 @@ builder.Services.AddControllers()
 builder.Services.AddScoped<CustomerRepository>();
 builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddScoped<BranchRepository>();
+builder.Services.AddScoped<SaleRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
