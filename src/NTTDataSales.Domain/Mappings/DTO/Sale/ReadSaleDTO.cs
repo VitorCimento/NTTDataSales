@@ -1,5 +1,6 @@
 ﻿using NTTDataSales.Domain.Mappings.DTO.Branch;
 using NTTDataSales.Domain.Mappings.DTO.Customer;
+using NTTDataSales.Domain.Mappings.DTO.SaleItem;
 
 namespace NTTDataSales.Domain.Mappings.DTO.Sale;
 
@@ -18,4 +19,6 @@ public class ReadSaleDTO
     public ReadCustomerDTO CUSTOMER  { get; set; }
 
     public ReadBranchDTO BRANCH { get; set; }
+
+    public ICollection<ReadSaleItemDTO> SALEITEMS { get; set; }
 }

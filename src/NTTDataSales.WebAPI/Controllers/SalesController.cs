@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using NTTDataSales.Business.BLL;
 using NTTDataSales.Domain.Entities;
 using NTTDataSales.Domain.Mappings.DTO.Product;
 using NTTDataSales.Domain.Mappings.DTO.Sale;
@@ -13,11 +14,13 @@ public class SalesController : ControllerBase
 {
     private SaleRepository _repository;
     private IMapper _mapper;
+    private SaleBLL _bll;
 
-    public SalesController(SaleRepository repository, IMapper mapper)
+    public SalesController(SaleRepository repository, IMapper mapper, SaleBLL bll)
     {
         _repository = repository;
         _mapper = mapper;
+        _bll = bll;
     }
 
     [HttpGet]
@@ -46,7 +49,7 @@ public class SalesController : ControllerBase
     public async Task<IActionResult> Post([FromBody] CreateSaleDTO saleDTO)
     {
         var sale = _mapper.Map<Sale>(saleDTO);
-        var createdSale = await _repository.CreateAsync(sale);
+        var createdSale = await _bll.CreateSaleAsync(sale);
 
         return CreatedAtAction(nameof(Get), new { createdSale.ID }, createdSale);
     }
@@ -69,5 +72,15 @@ public class SalesController : ControllerBase
         if (!response) return NotFound();
 
         return Ok(new { message = "Sale removed successfully!" });
+    }
+
+    [HttpPost("cancelSale/{id}")]
+    public async Task<IActionResult> CancelSale([FromRoute] int id)
+    {
+        var response = await _bll.CancelSale(id);
+
+        if (!response) return NotFound();
+
+        return Ok(new { message = "Sale cancelled!" });
     }
 }

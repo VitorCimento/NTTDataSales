@@ -11,5 +11,6 @@ public class SaleProfile : Profile
         CreateMap<CreateSaleDTO, Sale>();
         CreateMap<UpdateSaleDTO, Sale>();
         CreateMap<Sale, ReadSaleDTO>();
+        CreateMap<Sale, UpdateSaleDTO>();
     }
 }

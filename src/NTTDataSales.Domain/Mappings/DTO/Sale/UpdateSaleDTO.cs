@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using NTTDataSales.Domain.Mappings.DTO.SaleItem;
 
 namespace NTTDataSales.Domain.Mappings.DTO.Sale;
 
@@ -21,4 +22,7 @@ public class UpdateSaleDTO
 
     [Required]
     public int BRANCHID { get; set; }
+
+    [Required]
+    public ICollection<UpdateSaleItemDTO> SALEITEMS { get; set; }
 }

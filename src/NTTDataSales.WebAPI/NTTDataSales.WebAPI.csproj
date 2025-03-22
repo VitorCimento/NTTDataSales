@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NTTDataSales.Business\NTTDataSales.Business.csproj" />
     <ProjectReference Include="..\NTTDataSales.Domain\NTTDataSales.Domain.csproj" />
     <ProjectReference Include="..\NTTDataSales.ORM\NTTDataSales.ORM.csproj" />
   </ItemGroup>

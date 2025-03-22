@@ -28,4 +28,6 @@ public class Sale
     public virtual Customer CUSTOMER { get; set; }
 
     public virtual Branch BRANCH { get; set; }
+
+    public virtual ICollection<SaleItem> SALEITEMS { get; set; }
 }

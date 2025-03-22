@@ -11,4 +11,9 @@ public class NttContext : DbContext
     public DbSet<Sale> Sales { get; set; }
 
     public NttContext(DbContextOptions<NttContext> opts) : base(opts) { }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Sale>().HasMany(x => x.SALEITEMS);
+    }
 }

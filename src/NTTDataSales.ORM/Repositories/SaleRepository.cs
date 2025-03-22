@@ -33,12 +33,17 @@ public class SaleRepository
     public async Task<Sale?> GetByIdAsync(int id) => await _context.Sales
         .Include(x => x.CUSTOMER)
         .Include(x => x.BRANCH)
+        .Include(x => x.SALEITEMS)
+        //.ThenInclude(x => x.PRODUCT)
         .FirstOrDefaultAsync(x => x.ID == id);
 
     public async Task<Sale> CreateAsync(Sale sale)
     {
         await _context.Sales.AddAsync(sale);
         await _context.SaveChangesAsync();
+
+        Console.WriteLine($"[{DateTime.Now}] Sale {sale.ID} created!");
+
         return sale;
     }
 
@@ -50,6 +55,8 @@ public class SaleRepository
 
         _mapper.Map(saleDTO, sale);
         await _context.SaveChangesAsync();
+
+        Console.WriteLine($"[{DateTime.Now}] Sale {id} modified!");
 
         return sale;
     }
@@ -85,12 +92,16 @@ public class SaleRepository
                 .OrderBy(sortBy)
                 .Include(x => x.CUSTOMER)
                 .Include(x => x.BRANCH)
+                .Include(x => x.SALEITEMS)
+                //.ThenInclude(x => x.PRODUCT)
                 .Skip(skip * size)
                 .Take(size)
             : _context.Sales
                 .OrderByDescending(sortBy)
                 .Include(x => x.CUSTOMER)
                 .Include(x => x.BRANCH)
+                .Include(x => x.SALEITEMS)
+                //.ThenInclude(x => x.PRODUCT)
                 .Skip(skip * size)
                 .Take(size);
     }
